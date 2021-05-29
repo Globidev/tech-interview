@@ -4,13 +4,7 @@ import ProgramEditor from "./components/program-editor";
 import MazeRenderer from "./components/maze-renderer";
 import MazeControls, { Action, PlaySpeed } from "./components/maze-controls";
 
-import {
-  cpuTick,
-  cpuTicks,
-  Instruction,
-  newMaze,
-  parseInstructions,
-} from "./maze";
+import { cpuTick, Instruction, newMaze, parseInstructions } from "./maze";
 
 import { MAZES } from "./data";
 
@@ -47,35 +41,7 @@ const App = () => {
 
   // Dispatch an action from the controls
   const applyAction = (action: Action) => {
-    let nextMaze = maze;
-
-    switch (action.type) {
-      case "next":
-        setPlaying(false);
-        nextMaze = cpuTick(maze);
-        break;
-      case "play-pause":
-        setPlaying(action.playing);
-        break;
-      case "stop":
-        setPlaying(false);
-        nextMaze = newMaze(instructions);
-        break;
-      case "play-speed":
-        setPlaySpeed(action.speed);
-        break;
-      case "set-step":
-        setPlaying(false);
-        const tickCount = action.step - maze.steps;
-        if (tickCount >= 0) {
-          nextMaze = cpuTicks(maze, tickCount);
-        } else {
-          nextMaze = cpuTicks(newMaze(instructions), action.step);
-        }
-        break;
-    }
-
-    setMaze(nextMaze);
+    // TODO
   };
 
   return (
