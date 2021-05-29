@@ -28,17 +28,8 @@ export const newMaze = (instructions: Instruction[]): Maze => ({
 
 // Parses raw input text into a list of instructions
 export const parseInstructions = (input: string): Instruction[] | undefined => {
-  // Trim and split raw input by whitespaces to extract offsets
-  const rawParts = input.trim().split(/[ \n]+/);
-  const offsets = rawParts.map((line) => parseInt(line));
-
-  // Validate input
-  const hasInvalidOffsets = offsets.some(isNaN);
-  if (hasInvalidOffsets) {
-    return;
-  }
-
-  return offsets.map((offset) => ({ type: "jump", offset }));
+  // TODO
+  return undefined;
 };
 
 // Executes one "CPU tick" inside the maze, returning the next maze
