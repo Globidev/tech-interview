@@ -43,35 +43,8 @@ export const parseInstructions = (input: string): Instruction[] | undefined => {
 
 // Executes one "CPU tick" inside the maze, returning the next maze
 export const cpuTick = (maze: Maze): Maze => {
-  const { instructions, pc, steps } = maze;
-
-  if (pc.state === "exited") {
-    return maze;
-  }
-
-  const instrToRun = instructions[pc.index];
-
-  switch (instrToRun.type) {
-    case "jump":
-      const offset = instrToRun.offset;
-
-      const nextInstructions = [...instructions];
-      nextInstructions[pc.index] = {
-        type: "jump",
-        offset: offset + 1,
-      };
-
-      const nextIndex = pc.index + offset;
-      const outOfBounds = nextIndex < 0 || nextIndex >= instructions.length;
-
-      return {
-        instructions: nextInstructions,
-        pc: outOfBounds
-          ? { state: "exited" }
-          : { state: "inside", index: nextIndex },
-        steps: steps + 1,
-      };
-  }
+  // TODO
+  return maze;
 };
 
 // Executes multiple "CPU ticks" inside the maze
