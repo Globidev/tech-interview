@@ -42,7 +42,7 @@ export const parseInstructions = (input: string): Instruction[] | undefined => {
 };
 
 // Executes one "CPU tick" inside the maze, returning the next maze
-export const cpuTick = (maze: Maze): Maze => {
+export const cpuTick = (maze: Readonly<Maze>): Maze => {
   // TODO
   return maze;
 };
